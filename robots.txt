@@ -1,1 +1,3 @@
-# Sitemap: https://takeshisakuma.github.io/sitemap.xml
+#Common
+User-Agent: *
+Sitemap: https://takeshisakuma.github.io/sitemap.xml
