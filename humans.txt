@@ -1,0 +1,13 @@
+/* TEAM */
+    Owner, Designer,Frontend Engineer: takeshi sakuma
+    Facebook: https://www.facebook.com/takeshi.sakuma.5
+    Twitter: https://twitter.com/socket1024
+    GitHub: https://github.com/takeshisakuma
+    Location: Nerima, Tokyo, Japan
+
+/* SITE */
+    Language: Japanese
+    Timezone: JST
+    Standards: HTML5, CSS3
+    Components: Sass,Pug
+    Software: VS Code, Photoshop, Illustrator,XD
