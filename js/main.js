@@ -23,14 +23,24 @@ const jk = () => {
 
 
 //セクション出現
+
 const callback = (entries, observer) => {
   Object.keys(entries).forEach(entry => {
     console.log(entries[entry].target);
     entries[entry].target.classList.add("active");
   })
 }
-
-
+/*
+const callback = (entries, observer) => {
+  //Object.keys(entries).forEach(entry => {
+  console.log(entries.target);
+  //observer.observe[0].classList.add("active");
+  console.log(entries);
+  console.log(observer[entries]);
+  //}
+  //)
+}
+*/
 const options = {
   root: null,
   rootMargin: '0px',
