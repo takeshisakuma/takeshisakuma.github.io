@@ -19,3 +19,29 @@ const jk = () => {
   }
 }
 */
+
+
+
+//セクション出現
+const callback = (entries, observer) => {
+  Object.keys(entries).forEach(entry => {
+    console.log(entries[entry].target);
+    entries[entry].target.classList.add("active");
+  })
+}
+
+
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: [0.25, 0.5]
+}
+
+const observer = new IntersectionObserver(callback, options);
+
+
+const targets = document.querySelectorAll('.js-interSectionTarget');
+targets.forEach(target => {
+  observer.observe(target);
+
+});
