@@ -1,3 +1,4 @@
+//loader
 const loaderLayer = document.getElementById("js-loadingLayer");
 const loadedTransiton = () => {
   loaderLayer.classList.remove("active");
@@ -7,51 +8,34 @@ window.addEventListener("load", loadedTransiton);
 
 
 
-/*
-const aaa = document.getElementsByClassName("favorite__item");
-console.log(aaa);
-for (let i = 0; i < aaa.length; i++) {
-  aaa[i].style.opacity = 0;
-}
-const jk = () => {
-  for (let i = 0; i < aaa.length; i++) {
-    aaa[i].style.opacity += 0.1;
+// intersection observer
+const startIntersectionObserver = () => {
+
+  const callback = (entries, observer) => {
+    entries.forEach(entry => {
+
+      if (entry.intersectionRatio >= 0.2) {
+        entry.target.classList.add('active')
+      } else if (!entry.isIntersecting) {
+        entry.target.classList.remove('active')
+      }
+    })
   }
-}
-*/
+
+  const option = {
+    threshold: [0.2, 1]
+  }
+
+  const observer = new IntersectionObserver(callback, option);
+
+  const targetList = document.querySelectorAll('.js-interSectionTarget');
+  const targetArray = [...targetList];
 
 
-
-//セクション出現
-
-const callback = (entries, observer) => {
-  Object.keys(entries).forEach(entry => {
-    console.log(entries[entry].target);
-    entries[entry].target.classList.add("active");
+  targetArray.forEach((target) => {
+    observer.observe(target);
   })
-}
-/*
-const callback = (entries, observer) => {
-  //Object.keys(entries).forEach(entry => {
-  console.log(entries.target);
-  //observer.observe[0].classList.add("active");
-  console.log(entries);
-  console.log(observer[entries]);
-  //}
-  //)
-}
-*/
-const options = {
-  root: null,
-  rootMargin: '0px',
-  threshold: [0.25, 0.5]
+
 }
 
-const observer = new IntersectionObserver(callback, options);
-
-
-const targets = document.querySelectorAll('.js-interSectionTarget');
-targets.forEach(target => {
-  observer.observe(target);
-
-});
+startIntersectionObserver()
